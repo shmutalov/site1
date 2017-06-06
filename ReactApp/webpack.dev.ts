@@ -53,10 +53,10 @@ const config: webpack.Configuration = {
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-        use: 'url'
+        use: 'file'
       },
       {
-        test: /\.(eot|ttf|wav|mp3)$/,
+        test: /\.(eot|ttf|wav|mp3|mp4)$/,
         use: 'file'
       }
     ]

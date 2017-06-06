@@ -12,14 +12,14 @@ const outputPath = path.join(__dirname, 'build');
 const config: webpack.Configuration = {
   context: inputPath,
 
-  entry: './index.tsx',
+  entry: './',
 
   output: {
     path: outputPath,
     filename: '[name].js',
   },
 
-  devtool: 'source-map',
+  devtool: 'cheap-eval-source-map',
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -30,27 +30,29 @@ const config: webpack.Configuration = {
   },
 
   module: {
-    rules: [{
-      test: /\.tsx?$/,
-      use: [
-        {
-          loader: 'babel',
-          options: {
-            presets: [
-              ['es2015', { 'modules': false }],
-              'react'
-            ],
-          }
-        },
-        'awesome-typescript?configFileName=src/tsconfig.json'
-      ]
-    },
-    {
-      test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        use: 'css'
-      })
-    }
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'babel',
+            options: {
+              presets: [['es2015', { 'modules': false }], 'react']
+            }
+          },
+          'awesome-typescript?configFileName=src/tsconfig.json'
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          use: 'css'
+        })
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|mp4|eot|ttf|wav|mp3)$/,
+        use: 'file'
+      }
     ]
   },
 

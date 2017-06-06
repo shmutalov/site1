@@ -6,19 +6,25 @@
     "build": "webpack -p --colors --config webpack.prod.ts --progress"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1",
+    "react-slick": "^0.14.11",
+    "react-transitive-number": "^3.0.1",
     "semantic-ui-css": "^2.2.10",
-    "semantic-ui-react": "^0.68.5"
+    "semantic-ui-react": "^0.68.5",
+    "slick-carousel": "^1.6.0"
   },
   "devDependencies": {
     "@types/extract-text-webpack-plugin": "^2.1.0",
     "@types/html-webpack-plugin": "^2.28.0",
+    "@types/lodash": "^4.14.65",
     "@types/react": "^15.0.25",
     "@types/react-dom": "^15.5.0",
     "@types/react-hot-loader": "^3.0.1",
     "@types/react-router-dom": "^4.0.4",
+    "@types/react-slick": "^0.14.0",
     "@types/webpack": "^2.2.15",
     "@types/webpack-env": "^1.13.0",
     "@types/webpack-notifier": "^1.5.1",
