@@ -19,7 +19,7 @@ const config: webpack.Configuration = {
     filename: '[name].js',
   },
 
-  devtool: 'cheap-eval-source-map',
+  devtool: 'cheap-module-source-map',
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -77,6 +77,12 @@ const config: webpack.Configuration = {
         const context = module.context;
         return context && context.indexOf('node_modules') >= 0;
       },
+    }),
+
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
     }),
 
     new ExtractTextPlugin({
