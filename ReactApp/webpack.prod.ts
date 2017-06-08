@@ -19,7 +19,7 @@ const config: webpack.Configuration = {
     filename: '[name].js',
   },
 
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -44,13 +44,15 @@ const config: webpack.Configuration = {
         ]
       },
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: 'css'
-        })
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({ use: ['css', 'sass'] })
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|mp4|eot|ttf|wav|mp3)$/,
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({ use: 'css' })
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf|wav|mp3|mp4)$/,
         use: 'file'
       }
     ]

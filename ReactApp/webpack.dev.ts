@@ -48,15 +48,15 @@ const config: webpack.Configuration = {
         ]
       },
       {
+        test: /\.scss$/,
+        use: ['style', 'css', 'sass']
+      },
+      {
         test: /\.css$/,
         use: ['style', 'css']
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-        use: 'file'
-      },
-      {
-        test: /\.(eot|ttf|wav|mp3|mp4)$/,
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf|wav|mp3|mp4)$/,
         use: 'file'
       }
     ]

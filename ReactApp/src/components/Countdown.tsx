@@ -1,6 +1,6 @@
 import React from 'react';
 import TNumber from 'react-transitive-number';
-import { Statistic, Segment, Message, Icon, Container } from 'semantic-ui-react';
+import { Statistic, Segment, Message, Icon, Header, Container } from 'semantic-ui-react';
 
 
 interface IProps {
@@ -10,7 +10,7 @@ interface IProps {
 export default class Countdown extends React.PureComponent<IProps, {}> {
 
   static defaultProps = {
-    startDateTime: new Date('2018-05-22 10:00')
+    startDateTime: new Date('2019-09-01 9:00')
   }
 
   private timer;
@@ -33,25 +33,19 @@ export default class Countdown extends React.PureComponent<IProps, {}> {
   render() {
     return (
       <div>
-
-        <Segment attached='top'>
-          <Container textAlign='center' fluid>
-            <Statistic.Group>
-              <Statistic value='883' label='кун' />
-              <Statistic value='04' label='соат' />
-              <Statistic value='28' label='минут' />
-              <Statistic value={<TNumber>{this.state.n}</TNumber>} label='секунд' />
-            </Statistic.Group>
-          </Container>
-        </Segment>
-        <Message attached='bottom' >
+        <Header as='h1'>
           <Icon name='calendar' />
           Ишга тушиш санаси: &nbsp;
-             <strong>
-            {this.props.startDateTime.toLocaleString()}
-          </strong>
-        </Message>
-
+          {this.props.startDateTime.toLocaleString()}
+        </Header>
+        <Container text textAlign='center' fluid>
+          <Statistic.Group as='span'>
+            <Statistic value='883' label='кун' />
+            <Statistic value='04' label='соат' />
+            <Statistic value='28' label='минут' />
+            <Statistic value={<TNumber>{this.state.n}</TNumber>} label='секунд' />
+          </Statistic.Group>
+        </Container>
       </div >
     );
   }
