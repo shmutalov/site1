@@ -7,7 +7,14 @@ interface IProps {
   startDateTime?: Date;
 }
 
-export default class Countdown extends React.PureComponent<IProps, {}> {
+interface IState {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+export default class Countdown extends React.PureComponent<IProps, IState> {
 
   static defaultProps = {
     startDateTime: new Date('2019-09-01 9:00')
@@ -15,22 +22,66 @@ export default class Countdown extends React.PureComponent<IProps, {}> {
 
   private timer;
 
-  state = {
-    n: 1000
-  };
+  constructor(props) {
+    super(props);
+
+    let diff = (this.props.startDateTime.valueOf() - Date.now()) / 1000;
+    const seconds = Math.floor(diff % 60);
+    diff /= 60;
+
+    const minutes = Math.floor(diff % 60);
+    diff /= 60;
+
+    const hours = Math.floor(diff % 24);
+    diff /= 24;
+
+    this.state = {
+      days: Math.floor(diff),
+      hours,
+      minutes,
+      seconds
+    };
+  }
 
   componentWillMount() {
-    this.timer = window.setInterval(() => {
-      this.setState({ n: this.state.n - 1 });
-    }, 1000);
+    this.timer = window.setInterval(this.tick, 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
   }
 
+  private tick = () => {
+    let { seconds, minutes, hours, days } = this.state;
+    if (seconds > 0) {
+      this.setState({ seconds: seconds - 1 });
+      return;
+    }
+
+    if (minutes > 0) {
+      this.setState({ seconds: 59, minutes: minutes - 1 });
+      return;
+    }
+
+    if (hours > 0) {
+      this.setState({ seconds: 59, minutes: 59, hours: hours - 1 });
+      return;
+    }
+
+    if (days > 0) {
+      this.setState({ seconds: 59, minutes: 59, hours: 23, days: days - 1 });
+      return;
+    }
+
+    this.setState({ seconds: 0, minutes: 0, hours: 0, days: 0 });
+  }
+
+  private statistic(value: number, label: string) {
+    return <Statistic value={<TNumber>{value < 10 ? '0' + value : value}</TNumber>} label={label} />;
+  }
 
   render() {
+    const { days, hours, minutes, seconds } = this.state;
     return (
       <div>
         <Header as='h1'>
@@ -40,10 +91,10 @@ export default class Countdown extends React.PureComponent<IProps, {}> {
         </Header>
         <Container text textAlign='center' fluid>
           <Statistic.Group as='span'>
-            <Statistic value='883' label='кун' />
-            <Statistic value='04' label='соат' />
-            <Statistic value='28' label='минут' />
-            <Statistic value={<TNumber>{this.state.n}</TNumber>} label='секунд' />
+            {this.statistic(days, 'кун')}
+            {this.statistic(hours, 'соат')}
+            {this.statistic(minutes, 'минут')}
+            {this.statistic(seconds, 'секунд')}
           </Statistic.Group>
         </Container>
       </div >
