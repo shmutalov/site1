@@ -5,13 +5,16 @@ header {
 section {
   padding: 4em;
   * {
-    color: steelblue;
+    color: darkslategrey;
   }
-
   &.alter {
     * {
       color: rgb(83, 73, 52) !important;
     }
     background-color: #eeece7;
   }
+}
+
+.inline {
+  display: inline-flex !important;
 }

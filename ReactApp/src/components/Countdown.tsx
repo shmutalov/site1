@@ -89,14 +89,17 @@ export default class Countdown extends React.PureComponent<IProps, IState> {
           Ишга тушиш санаси: &nbsp;
           {this.props.startDateTime.toLocaleString()}
         </Header>
-        <Container text textAlign='center' fluid>
-          <Statistic.Group as='span'>
+        <Container textAlign='center'>
+          <Statistic.Group className='inline'>
             {this.statistic(days, 'кун')}
             {this.statistic(hours, 'соат')}
             {this.statistic(minutes, 'минут')}
             {this.statistic(seconds, 'секунд')}
           </Statistic.Group>
         </Container>
+        <p>
+          * Ишчи уринлар сони 30. Клиника курилиши учун кузда тутилган маблаг 600 млн, тиббий жихозлаш учун кузда тутилган маблаг 400 млн.
+        </p>
       </div >
     );
   }
