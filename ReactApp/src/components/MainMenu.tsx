@@ -1,9 +1,12 @@
 import { Menu, Container, Image, List, Segment, Grid } from 'semantic-ui-react';
 
 export default () =>
-  <Menu>
+  <Menu className='mainMenu'>
     <Container>
-      <Menu.Item header as='h1' content='Травматолог.уз' />
+      <Menu.Item header as='h1'>
+        <img src={require('./logo.gif')} />
+        Травматолог.уз
+      </Menu.Item>
       <Menu.Item style={{ width: '40em' }}>
         <Grid columns='sixteen'>
           <Grid.Column width={10}>
