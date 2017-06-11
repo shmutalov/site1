@@ -15,7 +15,7 @@ export default () =>
                 <Image src={require('./avatar.jpg')} width='16' shape='circular' />
                 <List.Content>Турдиев Шерзод</List.Content>
               </List.Item>
-              <List.Item icon='marker' content='Наманган вилоят, Мингбулок туман.' />
+              <List.Item icon='marker' content='Наманган вилоят, Мингбулоқ туман.' />
               <List.Item icon='phone' content='+998 (91) 281-1985' />
             </List>
           </Grid.Column>
