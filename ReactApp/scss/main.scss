@@ -1,5 +1,6 @@
+$bgcolor: #edffff;
 body {
-  background-color: skyblue !important;
+  background-color: $bgcolor;
 }
 
 header {
@@ -24,5 +25,5 @@ section {
 }
 
 .mainMenu {
-  background-color: skyblue !important;
+  background-color: darken($bgcolor, 25%) !important;
 }

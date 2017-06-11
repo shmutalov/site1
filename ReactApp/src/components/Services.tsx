@@ -6,6 +6,7 @@ export default () =>
     <Container >
       <div>
         Ахолига малакали амбулатор ва стационар тиббий хизмат курсатиш:
+        <br />
         <List size='large'>
           <List.Item icon='checkmark' content='травматология-ортопедия' />
           <List.Item icon='checkmark' content='гинекология' />

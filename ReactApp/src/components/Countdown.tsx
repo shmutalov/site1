@@ -97,6 +97,7 @@ export default class Countdown extends React.PureComponent<IProps, IState> {
             {this.statistic(seconds, 'секунд')}
           </Statistic.Group>
         </Container>
+        <br />
         <p>
           * Ишчи ўринлар сони 30. Клиника қурилиши учун кўзда тутилган маблағ 600 млн, тиббий жихозлаш учун кўзда тутилган маблағ 400 млн.
         </p>

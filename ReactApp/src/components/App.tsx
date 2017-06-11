@@ -5,6 +5,7 @@ import MainMenu from './MainMenu';
 import Carousel from './Carousel';
 import Countdown from './Countdown';
 import Services from './Services';
+import Footer from './Footer';
 
 export default () =>
   <StickyContainer>
@@ -31,8 +32,10 @@ export default () =>
           <Services />
         </Container>
       </section>
-      <section>
-        <div style={{ height: '20em' }}></div>
+      <section className='alter'>
+        <Container>
+          <Footer />
+        </Container>
       </section>
 
     </main>
