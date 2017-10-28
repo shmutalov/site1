@@ -10,7 +10,7 @@ export default () =>
         <List size='large'>
           <List.Item icon='checkmark' content='травматология-ортопедия' />
           <List.Item icon='checkmark' content='гинекология' />
-          <List.Item icon='checkmark' content='кордиология' />
+          <List.Item icon='checkmark' content='кардиология' />
           <List.Item icon='checkmark' content='стоматология' />
           <List.Item icon='checkmark' content='Лаборатор, инструментал ва биохимик тахлиллар (50 дан ортиқ)' />
           <List.Item icon='checkmark' content='УТТ' />
